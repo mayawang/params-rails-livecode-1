@@ -1,0 +1,22 @@
+<!--http://localhost:3000/posts/new -->
+
+<h1>Create a Blog Post</h1>
+
+<form name="new-post" action="create" method="post">
+  <!-- method "post/patch" HTTP verb -->
+  <label for="title">Title:</label>
+  <input type="text" name="title" id="title">
+
+  <label for="author">Author:</label>
+  <input type="text" name="author" id="author">
+
+  <textarea name="body" rows="8" cols="40" id="body" >
+  </textarea>
+
+  <%= tag(:input, :type => "hidden",
+     :name => request_forgery_protection_token.to_s,
+     :value => form_authenticity_token) %>
+
+  <button type="submit">Submit</button>
+
+</form>
