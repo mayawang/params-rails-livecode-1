@@ -2,8 +2,20 @@
 
 <h1>Create a Blog Post</h1>
 
-<form name="new-post" action="create" method="post">
-  <!-- method "post/patch" HTTP verb -->
+<!-- form builder: return a form builder object, only iterate once.-->
+<%= form_for @mypost, as: :post, url: create_path do |f| %>
+<!-- url: create_path {action: "create"}-->
+  <%= f.label :title  %>
+  <%= f.text_field :title %>
+  <%= f.label :author  %>
+  <%= f.text_field :author %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+<!-- <form name="new-post" action="create" method="post">
+
+  method "post/patch" HTTP verb
   <label for="title">Title:</label>
   <input type="text" name="title" id="title">
 
@@ -18,5 +30,4 @@
      :value => form_authenticity_token) %>
 
   <button type="submit">Submit</button>
-
-</form>
+</form> -->

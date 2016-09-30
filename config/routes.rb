@@ -2,12 +2,13 @@ Rails.application.routes.draw do
 
     root to: 'posts#index'
 
+  # viewer(method/action) => controller, nickname(uses like nickname_path)
   get 'posts/index', as:'index'
 
-  post 'posts/create' => 'posts#create'
+  post 'posts/create' => 'posts#create', as: 'create'
   # will recognize the first one that matches and ignore the duplicated one.
 
-  get 'posts/show' => 'posts#show', as: 'show1'
+  # get 'posts/show' => 'posts#show', as: 'show1'
 
   get 'posts/show/:id' => 'posts#show', as: 'show'
   # "#" is the posts controller
@@ -17,13 +18,12 @@ Rails.application.routes.draw do
 
   get 'posts/:id/edit' => 'posts#edit', as: 'edit'
 
-  get 'posts/update'
+  patch 'posts/:id/update' => 'posts#update', as: 'update'
 
-  get 'posts/:id/destroy' => 'posts#destroy', as: 'destroy'
+  delete 'posts/:id/destroy' => 'posts#destroy', as: 'delete'
 
-  get 'posts/index'
 
-  get 'posts/show'
+#  get 'posts/show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,2 +1,37 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit a Blog Post</h1>
+
+<!-- form builder: return a form builder object, only iterate once.-->
+<%= form_for @mypost, as: :post, url: update_path do |f| %>
+<!-- url: create_path {action: "create"}-->
+  <%= f.label :title  %>
+  <%= f.text_field :title %>
+  <%= f.label :author  %>
+  <%= f.text_field :author %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
+
+
+<!-- <h1>Update a Blog Post</h1>
+
+<form name="edit-post" action="update" method="post">
+  <input type="hidden" name="_method" value="PUT">
+  <!-- method "post/patch" HTTP verb -->
+  <!-- <label for="title">Title:</label>
+  <input type="text" name="title" id="title" value="<%= @mypost[:title]%>">
+
+  <label for="author">Author:</label>
+  <input type="text" name="author" id="author" value="<%= @mypost[:author]%>">
+
+  <label for="body">Body:</label>
+  <textarea id="body" name="body" rows="8" cols="40" id="body" value="<%= @mypost[:body]%>">
+  </textarea>
+
+  <%= tag(:input, :type => "hidden",
+     :name => request_forgery_protection_token.to_s,
+     :value => form_authenticity_token) %>
+
+  <button type="submit">Save</button>
+
+</form> --> -->
